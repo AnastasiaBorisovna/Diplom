@@ -171,24 +171,4 @@ public class MainPage {
         return this;
     }
 
-    @Step("Проверка того, что сообщения об ошибке скрыто")
-    public MainPage errorMessageIsInvisible() {
-        this.driver.$(APPLY_BUTTON_WHEEL)
-                .shouldBe(disappear);
-        buttonLoaderIsInvisible();
-        this.driver.$(ERROR_MESSAGE)
-                .shouldNotBe(visible);
-        return this;
-    }
-
-    @Step("Проверка того, что сообщения об успешности скрыто")
-    public MainPage successMessageIsInvisible() {
-        this.driver.$(APPLY_BUTTON_WHEEL)
-                .shouldBe(disappear);
-        buttonLoaderIsInvisible();
-        this.driver.$(SUCCESS_MESSAGE)
-                .shouldNotBe(visible);
-        return this;
-    }
-
 }
