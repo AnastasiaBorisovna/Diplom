@@ -1,7 +1,7 @@
 version: '3'
 services:
   mysql:
-    image: mysql
+    image: mysql:8.0.34
     container_name: mysqlserver
     ports:
       - '3306:3306'
@@ -12,12 +12,11 @@ services:
       - MYSQL_PASSWORD=databasePassword
 
   postgres:
-    image: postgres
-    container_name: postgres:alpine
+    image: postgres:16-alpine
+    container_name: postgres
     ports:
       - '5432:5432'
     environment:
-      - POSTGRES_ROOT_PASSWORD=databasePassword
       - POSTGRES_DB=app
       - POSTGRES_USER=databaseUser
       - POSTGRES_PASSWORD=databasePassword
