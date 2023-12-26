@@ -91,7 +91,7 @@ public class MainPage {
     public MainPage enterCardCVV(String cardCVV) {
         this.driver.$(CVV_INPUT)
                 .shouldBe(visible)
-                .type(cardCVV);
+                .append(cardCVV);
         return this;
     }
 

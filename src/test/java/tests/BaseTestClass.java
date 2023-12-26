@@ -52,19 +52,19 @@ public class BaseTestClass {
     @Step("Проверка статуса оплаты в БД")
     protected static void assertRowsCount(CardTypes cardType, boolean isCreated) {
         switch (cardType) {
-            case DEBIT -> {
+            case DEBIT: {
                 int count = DatabaseQueriesUtils.getDebitRowsCountFromDB();
                 if (!isCreated) {
-                    Assertions.assertEquals(count, debitRowsCount, "Запись в БД создана");
+                    Assertions.assertEquals(debitRowsCount, count, "Была создана запись в БД");
                 } else Assertions.assertTrue(count > debitRowsCount, "Запись в БД не создана");
-            }
-            case CREDIT -> {
+            } break;
+            case CREDIT: {
                 int count = DatabaseQueriesUtils.getCreditRowsCountFromDB();
                 if (!isCreated) {
-                    Assertions.assertEquals(count, creditRowsCount);
+                    Assertions.assertEquals(creditRowsCount, count, "Была создана запись в БД");
                 } else Assertions.assertTrue(count > creditRowsCount, "Запись в БД не создана");
-            }
-            default -> {
+            } break;
+            default: {
             }
         }
 
@@ -73,17 +73,17 @@ public class BaseTestClass {
     @Step("Проверка статуса оплаты в БД")
     protected static void assertStatusFromDB(CardTypes cardType, String expectedStatus) {
         switch (cardType) {
-            case DEBIT -> {
+            case DEBIT: {
                 assertRowsCount(CardTypes.DEBIT, true);
                 String actualStatus = DatabaseQueriesUtils.getLastDebitStatusFromDB();
-                Assertions.assertEquals(actualStatus, expectedStatus, "");
-            }
-            case CREDIT -> {
+                Assertions.assertEquals(expectedStatus, actualStatus, "Статус в БД не совпадает");
+            } break;
+            case CREDIT: {
                 assertRowsCount(CardTypes.CREDIT, true);
                 String actualStatus = DatabaseQueriesUtils.getLastCreditStatusFromDB();
-                Assertions.assertEquals(actualStatus, expectedStatus);
-            }
-            default -> {
+                Assertions.assertEquals(expectedStatus, actualStatus, "Статус в БД не совпадает");
+            } break;
+            default: {
             }
         }
     }
@@ -123,6 +123,5 @@ public class BaseTestClass {
         CREDIT;
 
     }
-
 
 }
