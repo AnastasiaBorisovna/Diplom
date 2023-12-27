@@ -77,7 +77,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void expiredDebitCardTest() {
         mainPage
                 .clickBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(GOOD_HOLDER)
                 .enterCardMonth(GOOD_MONTH)
@@ -94,7 +93,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void expiredCreditCardTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(GOOD_HOLDER)
                 .enterCardMonth(GOOD_MONTH)
@@ -111,7 +109,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidMonthDebitCardTest() {
         mainPage
                 .clickBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(GOOD_HOLDER)
                 .enterCardMonth("13")
@@ -128,10 +125,9 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidMonthCreditCardTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(GOOD_HOLDER)
-                .enterCardMonth(BAD_MONTH)
+                .enterCardMonth("13")
                 .enterCardYear(GOOD_YEAR)
                 .enterCardCVV(GOOD_CVV)
                 .clickApplyButton()
@@ -145,7 +141,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidYearDebitCardTest() {
         mainPage
                 .clickBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(GOOD_HOLDER)
                 .enterCardMonth(GOOD_MONTH)
@@ -162,7 +157,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidYearLettersCreditCardTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(GOOD_HOLDER)
                 .enterCardMonth(GOOD_MONTH)
@@ -179,7 +173,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidLastNameDebitCardTest() {
         mainPage
                 .clickBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(CYRILLIC_LAST_NAME)
                 .enterCardMonth(GOOD_MONTH)
@@ -195,7 +188,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidFirstNameDebitCardTest() {
         mainPage
                 .clickBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(CYRILLIC_FIRST_NAME)
                 .enterCardMonth(GOOD_MONTH)
@@ -211,7 +203,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void limitFirstNameDebitCardTest() {
         mainPage
                 .clickBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(LONG_FIRST_NAME)
                 .enterCardMonth(GOOD_MONTH)
@@ -227,7 +218,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void limitLastNameDebitCardTest() {
         mainPage
                 .clickBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(LONG_LAST_NAME)
                 .enterCardMonth(GOOD_MONTH)
@@ -243,7 +233,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidLastNameCreditCardTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(CYRILLIC_LAST_NAME)
                 .enterCardMonth(GOOD_MONTH)
@@ -259,7 +248,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidFirstNameCreditCardTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(CYRILLIC_FIRST_NAME)
                 .enterCardMonth(GOOD_MONTH)
@@ -275,7 +263,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void limitFirstNameCreditCardTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(LONG_FIRST_NAME)
                 .enterCardMonth(GOOD_MONTH)
@@ -291,7 +278,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void limitLastNameCreditCardTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(LONG_LAST_NAME)
                 .enterCardMonth(GOOD_MONTH)
@@ -324,7 +310,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidCVVCreditCardTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(GOOD_HOLDER)
                 .enterCardMonth(GOOD_MONTH)
@@ -415,7 +400,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void emptyCardholderCreditCardTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardMonth(GOOD_MONTH)
                 .enterCardYear(GOOD_YEAR)
@@ -430,7 +414,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void emptyCardNumberCreditCardTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardHolder(GOOD_HOLDER)
                 .enterCardMonth(GOOD_MONTH)
                 .enterCardYear(GOOD_YEAR)
@@ -445,7 +428,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void emptyCVVCreditCardTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(GOOD_HOLDER)
                 .enterCardMonth(GOOD_MONTH)
@@ -460,7 +442,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void emptyYearCreditCardFromBuyPageTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(GOOD_HOLDER)
                 .enterCardMonth(GOOD_MONTH)
@@ -475,7 +456,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void emptyMonthCreditCardTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(GOOD_HOLDER)
                 .enterCardYear(GOOD_YEAR)
@@ -490,7 +470,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidCardNumberDebitCardLettersTest() {
         mainPage
                 .clickBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_FIRST_NAME)
                 .enterCardHolder(GOOD_HOLDER)
                 .enterCardMonth(GOOD_MONTH)
@@ -506,7 +485,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidCardNumberCreditCardDigitsTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_FIRST_NAME)
                 .enterCardHolder(GOOD_HOLDER)
                 .enterCardMonth(GOOD_MONTH)
@@ -522,7 +500,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidCardNumberCreditCardDigitsHyphenTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(HYPHEN_DIGITS)
                 .enterCardHolder(GOOD_HOLDER)
                 .enterCardMonth(GOOD_MONTH)
@@ -570,7 +547,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidCardNumberCreditCardDigitsApostropheTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(APOSTROPHE_DIGITS)
                 .enterCardHolder(GOOD_HOLDER)
                 .enterCardMonth(GOOD_MONTH)
@@ -603,7 +579,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidYearSpecCreditCardTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(GOOD_HOLDER)
                 .enterCardMonth(GOOD_MONTH)
@@ -637,7 +612,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidYearDigitsHyphenCreditCardTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(GOOD_HOLDER)
                 .enterCardMonth(GOOD_MONTH)
@@ -671,7 +645,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidYearDigitsApostropheCreditCardTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(GOOD_HOLDER)
                 .enterCardMonth(GOOD_MONTH)
@@ -727,6 +700,7 @@ class NegativeScenariosTest extends BaseTestClass {
                 .enterCardYear(GOOD_YEAR)
                 .enterCardCVV(GOOD_CVV)
                 .clickApplyButton()
+                .buttonLoaderIsInvisible()
                 .cardHolderErrorIsVisible()
                 .buttonLoaderIsInvisible();
     }
@@ -752,7 +726,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidFirstNameSpecCreditCardTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(GOOD_FIRST_NAME + " " + SPECIAL_CHARACTERS_NAME)
                 .enterCardMonth(GOOD_MONTH)
@@ -768,7 +741,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidFirstNameSpecCreditCardFromCreditBuyPageTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(SPECIAL_CHARACTERS_NAME + " " + GOOD_LAST_NAME)
                 .enterCardMonth(GOOD_MONTH)
@@ -785,7 +757,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidLastNameDigitsDebitCardFromCreditBuyPageTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(GOOD_FIRST_NAME + " " + GOOD_CVV)
                 .enterCardMonth(GOOD_MONTH)
@@ -801,7 +772,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidFirstNameCreditCardFromCreditBuyPageTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(GOOD_CVV + " " + GOOD_LAST_NAME)
                 .enterCardMonth(GOOD_MONTH)
@@ -835,7 +805,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidCVVSpecCreditCardFromCreditBuyPageTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(GOOD_HOLDER)
                 .enterCardMonth(GOOD_MONTH)
@@ -869,7 +838,6 @@ class NegativeScenariosTest extends BaseTestClass {
     void invalidCVVCreditCardFromCreditBuyPageTest() {
         mainPage
                 .clickCreditBuyButton()
-                .clickApplyButton()
                 .enterCardNumber(GOOD_CARD)
                 .enterCardHolder(GOOD_HOLDER)
                 .enterCardMonth(GOOD_MONTH)

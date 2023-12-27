@@ -1,22 +1,29 @@
 package tests;
 
+import com.codeborne.selenide.Screenshots;
 import com.codeborne.selenide.SelenideConfig;
 import com.codeborne.selenide.SelenideDriver;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import com.google.common.io.Files;
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.TestWatcher;
 import ru.netology.pages.MainPage;
 import ru.netology.utils.Configuration;
 import ru.netology.utils.DatabaseQueriesUtils;
 import ru.netology.utils.GeneratorUtils;
 
+import java.io.File;
+import java.io.IOException;
+
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
-public class BaseTestClass {
+public class BaseTestClass implements TestWatcher {
 
-    protected SelenideDriver driver;
+    public SelenideDriver driver;
     protected MainPage mainPage;
     private final Configuration configuration = ConfigFactory.create(Configuration.class);
 
@@ -35,7 +42,6 @@ public class BaseTestClass {
     protected final String GOOD_YEAR = GeneratorUtils.generateYear(3);
     protected final String EARLIER_YEAR = GeneratorUtils.generateYear(-5);
     protected final String GOOD_MONTH = GeneratorUtils.generateMonth(1);
-    protected final String BAD_MONTH = GeneratorUtils.generateBadMonth();
     protected final String CYRILLIC = GeneratorUtils.generateCyrillic();
     protected final String GOOD_CVV = "123";
     protected final String BAD_CVV = "1";
@@ -102,19 +108,22 @@ public class BaseTestClass {
     }
 
     @AfterEach
-    public void teardown() {
+    public void teardown() throws IOException {
+        screenshot();
         closeWebDriver();
     }
 
     @BeforeAll
     static void beforeAll() {
-        SelenideLogger.addListener("allure", new AllureSelenide()
-                .screenshots(true));
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
+                .screenshots(true)
+                .savePageSource(false));
     }
 
-    @AfterAll
-    static void afterAll() {
-        SelenideLogger.removeListener("allure");
+    @Attachment(type = "image/png")
+    public static byte[] screenshot() throws IOException {
+        File screenshot = Screenshots.getLastScreenshot();
+        return screenshot == null ? null : Files.toByteArray(screenshot);
     }
 
     protected enum CardTypes {

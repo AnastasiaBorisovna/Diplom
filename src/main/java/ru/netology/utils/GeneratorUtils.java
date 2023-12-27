@@ -30,10 +30,6 @@ public class GeneratorUtils {
                 .format(DateTimeFormatter.ofPattern("MM"));
     }
 
-    public static String generateBadMonth() {
-        return String.valueOf(faker.number().numberBetween(13, 20));
-    }
-
     public static String generateYear(int diffYears) {
         return LocalDate.now()
                 .plusYears(diffYears)
