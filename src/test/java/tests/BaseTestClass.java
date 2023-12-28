@@ -55,7 +55,7 @@ public class BaseTestClass implements TestWatcher {
     protected static int debitRowsCount;
     protected static int creditRowsCount;
 
-    @Step("Проверка статуса оплаты в БД")
+    @Step("Проверка создания записи в БД")
     protected static void assertRowsCount(CardTypes cardType, boolean isCreated) {
         switch (cardType) {
             case DEBIT: {

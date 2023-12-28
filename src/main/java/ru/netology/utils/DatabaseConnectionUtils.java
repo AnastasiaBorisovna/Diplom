@@ -1,5 +1,6 @@
 package ru.netology.utils;
 
+import lombok.Getter;
 import org.aeonbits.owner.ConfigCache;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -14,6 +15,8 @@ public class DatabaseConnectionUtils {
 
     static final String PASSWORD = configuration.databasePassword();
     static final String USERNAME = configuration.databaseUsername();
+
+    @Getter
     static final String database = System.getProperty("database");
 
     static {
